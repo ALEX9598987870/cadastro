@@ -22,6 +22,7 @@ class ControladorCategoria extends Controller
         $categoria = new Categoria();
         $categoria->nome = $request->input('nomeCategoria');
         $categoria->save();
+        return redirect('/categorias');
     }
 
     public function show($id){
