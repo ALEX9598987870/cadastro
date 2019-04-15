@@ -7,9 +7,9 @@
         <h5 class="card-title"> cadastro de categorias</h5>
 
         @if (count($categorias) > 0)
-            <table class="table table-ordered table-hover">
+            <table class="table table-ordered table-hover table-striped table-bordered">
                 <thead>
-                    <tr>
+                    <tr class="thead-dark">
                         <th>codigo</th>
                         <th>nome</th>
                         <th>ações</th>
@@ -22,8 +22,8 @@
                             <td>{{$categoria->id}}</td>
                             <td>{{$categoria->nome}}</td>
                             <td>
-                                <a href="/categorias/editar/{{'id'}}" class="btn btn-success btn-sm">editar</a>
-                                <a href="/categorias/excluir/{{'id'}}" class="btn btn-danger btn-sm">excluir</a>
+                                <a href="/categorias/editar/{{$categoria->id}}" class="btn btn-outline-success btn-sm">editar</a>
+                                <a href="/categorias/excluir/{{$categoria->id}}" class="btn btn-outline-danger btn-sm">excluir</a>
                             </td>
                         </tr>
                     @endforeach

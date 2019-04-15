@@ -15,7 +15,8 @@ class ControladorCategoria extends Controller
     }
 
     public function create(){
-        return view('novacategoria');
+        $categoria = new Categoria();
+        return view('novacategoria', compact('categoria'));
     }
     
     public function store(Request $request){
@@ -30,13 +31,19 @@ class ControladorCategoria extends Controller
     }
 
     public function edit($id){
-        
+        $categoria = Categoria::find($id);
+        if(isset($categoria)){
+            return view('novacategoria', compact('categoria'));
+        }
+        return redirect('/categorias');
     }
 
     public function update(Request $request, $id){
         
     }
     public function destroy($id){
-        
+        $categoria = Categoria::find($id);
+            $categoria->delete();
+        return redirect('/categorias');
     }
 }
